@@ -1,0 +1,41 @@
+Read 
+
+Install Java JDK and SQL/Workbench
+ 
+CMD :
+C:\Users\Admin\Desktop\Rohit\Project\SupermarketApp\SupermarketApp>javac -cp .;lib\mysql-connector-j-9.2.0.jar SupermarketManagement.java
+C:\Users\Admin\Desktop\Rohit\Project\SupermarketApp\SupermarketApp>java -cp .;lib\mysql-connector-j-9.2.0.jar SupermarketManagement
+
+supermarket_db_setup.sql save this file to you desktop.
+
+Then in another cmd start sql
+
+C:\Program Files\MySQL\MySQL Server 8.0\bin>mysql -u root -p
+Enter password: *********(superpass)
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 17
+Server version: 8.0.42 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2025, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql>  SOURCE C:/Users/Admin/Desktop/supermarket_db_setup.sql;
+
+
+mysql> CREATE USER 'superuser'@'localhost' IDENTIFIED BY 'superpass';
+Query OK, 0 rows affected (4.42 sec)
+
+mysql> GRANT ALL PRIVILEGES ON supermarket_db.* TO 'superuser'@'localhost';
+Query OK, 0 rows affected (0.12 sec)
+
+mysql> FLUSH PRIVILEGES;
+Query OK, 0 rows affected (0.08 sec)
+
+mysql>
+mysql> exit
+Bye
